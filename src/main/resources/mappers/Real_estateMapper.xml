@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace = "com.ashspell.test.lesson02.dao.Real_estateDAO">
+ 	
+ 	<select id = "selectestate" resultType = "com.ashspell.test.lesson02.model.Real_estate"
+ 	parameterType = "int">
+ 	
+ 		select 
+ 			`id`
+ 			, `realtorId`
+ 			, `address`
+ 			, `area`
+ 			, `type`
+ 			, `price`
+ 			, `rentprice`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		FROM 
+ 			`real_estate`
+ 		WHERE
+ 			`id` = #{id}
+ 	</select>
+ 	
+ 	<insert id = "insertReal_estateByObject" parameterType = "com.ashspell.test.lesson02.model.Real_estate">
+ 		INSERT INTO `real_estate`
+ 		(
+ 			`realtorId`
+ 			, `address`
+ 			, `area`
+ 			, `type`
+ 			, `price`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 			
+ 		) VALUE (
+ 			#{realtorId}
+ 			, #{address}
+ 			, #{area}
+ 			, #{type}
+ 			, #{price}
+ 			, #{createdAt}
+ 			, #{updatedAt}
+ 		)
+ 	</insert>
+ 	
+ 	<update id = "updatedReal_estate" parameterType ="map">
+ 			UPDATE `real_estate`
+ 			SET 
+ 				`type` = #{type}
+ 				, `price` = #{price}
+ 				, `updatedAt` = now()
+ 				WHERE 
+ 			`id` = #{id}
+ 	</update>
+ 	
+ 	
+ </mapper>
