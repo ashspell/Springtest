@@ -3,6 +3,7 @@ package com.ashspell.test.lesson05.model;
 import java.util.Date;
 
 public class Weather {
+	private int id;
 	private String date;
 	private String weather;
 	private double temperatures;
@@ -11,6 +12,17 @@ public class Weather {
 	private double windspeed;
 	private Date createdAt;
 	private Date updatedAt;
+	
+	
+	
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getDate() {
 		return date;
 	}

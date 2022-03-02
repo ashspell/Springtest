@@ -29,12 +29,21 @@
 			<tbody>
 			<c:forEach var = "weatherhistory" items = "${weatherhistory }" varStatus = "status">
 				<tr>
-					<td>${weatherhistory.date }</td>
+					<td><fmt:formatDate value = "${weatherhistory.date }" pattern = "yyyy년MM월dd일" /></td>
+					<c:choose>
+						<c:when>
+						<%-- 날씨에 맞는 이미지  --%>
+						</c:when>
+						<c:otherwise>
+							<td>${weatherhistory.weather }</td>
+						</c:otherwise>
+					</c:choose>
+					
 					<td>${weatherhistory.weather }</td>
-					<td>${weatherhistory.temperatures }</td>
-					<td>${weatherhistory.precipitation }</td>
+					<td>${weatherhistory.temperatures }℃</td>
+					<td>${weatherhistory.precipitation }mm</td>
 					<td>${weatherhistory.microDust }</td>
-					<td>${weatherhistory.windSpeed }</td>
+					<td>${weatherhistory.windSpeed}km/h</td>
 				</tr>
 			</c:forEach>
 			</tbody>

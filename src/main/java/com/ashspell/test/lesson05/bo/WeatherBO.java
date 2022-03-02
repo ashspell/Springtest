@@ -1,9 +1,10 @@
 package com.ashspell.test.lesson05.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ashspell.test.lesson03.model.Seller;
 import com.ashspell.test.lesson05.dao.WeatherDAO;
 import com.ashspell.test.lesson05.model.Weather;
 
@@ -14,7 +15,14 @@ public class WeatherBO {
 	public WeatherDAO weatherDAO;
 	
 	
-	public Weather getWeatherhistory() {
-		return weatherDAO.getWeatherhistory(weatherDAO);
+	public List<Weather> getWeatherhistory() {
+		return weatherDAO.selectWeatherhistory();
+	}
+	
+	public int addweather(
+		//±êÇãºê Âü°í
+			
+			) {
+		
 	}
 }

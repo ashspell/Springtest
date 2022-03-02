@@ -1,5 +1,7 @@
 package com.ashspell.test.lesson05.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.ashspell.test.lesson05.model.Weather;
@@ -11,6 +13,6 @@ public interface WeatherDAO {
 
 	
 
-	public Weather getWeatherhistory (Weather weather);
+	public List<Weather> selectWeatherhistory();
 
 }

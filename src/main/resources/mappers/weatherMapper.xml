@@ -3,9 +3,10 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <mapper namespace = "com.ashspell.test.lesson05.dao.WeatherDAO">
- 	<insert id  = "insertWeather" parameterType = "com.ashspell.test.lesson05.model.Weather">
- 		INSERT INTO `weather_history`
- 		(`date`
+ 	<select id  = "selectWeatherhistory" resultType = "com.ashspell.test.lesson05.model.Weather">
+ 		SELECT
+ 		`id`
+ 		,`date`
  		.`weather`
  		,`temperatures`
  		,`precipitation`
@@ -13,17 +14,29 @@
  		,`windSpeed`
  		,`createdAt`
  		,`updatedAt`
- 		) values (
  		
- 		#{date}
- 		,#{weather}
- 		,#{temperatures}
- 		,#{precipitation}
- 		,#{microDust}
- 		,#{windSpeed}
- 		,now()
- 		,now()
- 		)
- 		
- 	</insert> 
+ 		FROM
+ 			`weatherhistory`
+ 	</select>
+ 	
+ 	<insert id ="insertweather" parameterType= "map">
+ 	
+ 	INSERT INTO `weatherhistory`
+ 	(`date`
+ 		.`weather`
+ 		,`temperatures`
+ 		,`precipitation`
+ 		,`microDust`
+ 		,`windSpeed`
+ 		,`createdAt`
+ 		,`updatedAt`
+ 	) Value (
+ 	#{date}
+ 	,#{temperatures}
+ 	,#{precipitation}
+ 	,#{microDust}
+ 	,#{windSpeed}
+ 	)
+ 	
+ 	</insert>
  </mapper>

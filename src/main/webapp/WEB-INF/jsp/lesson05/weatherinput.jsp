@@ -13,6 +13,7 @@
 <body>
 	<div class = "container">
 		<h1>날씨 입력</h1>
+		<form method = "get" action = "lesson05/add_weather">
 		 <div class="mb-3 row d-flex">
     		<label class=" col-form-label">날짜</label>
     	<div class="col-sm-3">
@@ -53,9 +54,8 @@
   			<input type="text">
   				<span class="input-group-text">km/h</span>
 		</div>
-		
-	
-	
+		</form>
 	</div>
+	
 </body>
 </html>
