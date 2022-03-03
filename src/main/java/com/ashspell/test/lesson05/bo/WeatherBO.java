@@ -1,5 +1,6 @@
 package com.ashspell.test.lesson05.bo;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,14 @@ public class WeatherBO {
 		return weatherDAO.selectWeatherhistory();
 	}
 	
-	public int addweather(
-		//±êÇãºê Âü°í
-			
-			) {
+	public int addWeather(Date date, 
+			String weather, 
+			double temperatures, 
+			double precipitation, 
+			String microDust, 
+			double windSpeed) {
 		
+		return weatherDAO.insertWeather(date, weather, temperatures, precipitation, microDust, windSpeed);
 	}
 }
+

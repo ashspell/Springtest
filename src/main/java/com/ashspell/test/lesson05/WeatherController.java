@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ashspell.test.lesson05.bo.WeatherBO;
 import com.ashspell.test.lesson05.model.Weather;
@@ -32,13 +31,8 @@ public class WeatherController {
 		return "lesson05/weatherinput";
 	}
 	
-	@GetMapping("/add_weather")
-	@ResponseBody
-	public String addweather(
-			// ±êÇãºê Âü°í
-			
-			) {
-		
-	}
+	
+	
+	
 	
 }
