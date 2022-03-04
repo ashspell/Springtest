@@ -20,6 +20,6 @@ public class FavoriteBO {
 	}
 	
 	public int addFavorite(String name, String url) {
-		
+		return favoriteDAO.insertFavorite(name, url);
 	}
 }

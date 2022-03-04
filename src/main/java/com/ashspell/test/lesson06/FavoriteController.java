@@ -1,6 +1,7 @@
 package com.ashspell.test.lesson06;
 
 import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
 
@@ -17,22 +18,17 @@ import com.ashspell.test.lesson06.bo.FavoriteBO;
 import com.ashspell.test.lesson06.model.Favorite;
 
 @Controller
-@RequestMapping("/lesson06")
+
 public class FavoriteController {
 	
 	@Autowired
 	public FavoriteBO favoriteBO;
 	
-	@GetMapping("/favoriteInput")
+	@GetMapping("/lesson06/favoriteInput")
 	public String favoriteInput() {
 		
 		return "lesson06/favoriteInput";
 	}
-	
-
-	
-	
-	
 
 	@GetMapping("/lesson06/favorite_list")
 	public String favoriteList(Model model) {
@@ -44,7 +40,7 @@ public class FavoriteController {
 	 return "lesson06/favoriteList";
 	}	
 	
-	@PostMapping("/add_favorite")
+	@PostMapping("/lesson06/add_favorite")
 	@ResponseBody
 	public Map<String, String> addFavorite(
 			@RequestParam("name")String name,
@@ -66,11 +62,13 @@ public class FavoriteController {
 		}
 		
 		return resultMap;
+			
 	}
 	
-	
-	
-	
-	
-	
+	@GetMapping("/lesson07/duplicatefavorite")
+	public String favoriteInput2() {
+		
+		return "lesson07/duplicateFavorite";
+	}
+		
 }

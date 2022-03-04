@@ -11,6 +11,22 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<style>
+	#duplicateUrl {
+		display:none;
+	}
+	
+	#possibleUrl {
+		display:none;
+	}
+
+
+</style>
+
+
+
+
 </head>
 <body>
 	
@@ -18,8 +34,19 @@
 		<h1>즐겨 찾기 추가하기</h1>
 	<label>제목</label>
 	<input type = "text" class ="form-control" id = "nameinput" name = "name">
+	<br>
 	<label>주소</label>
-	<input type = "text" class ="form-control" id = "urlinput" name = "url">
+	<div>
+	    <div class="input-group">
+	      <input type="text" class="form-control" id = "urlinput">
+	      <span class="input-group-btn">
+		<button class="btn btn-info" type="button" id = "duplicateBtn">중복확인</button>
+	      </span>
+	     </div>
+	    </div>
+	    <small id = "duplicateUrl" class = "text-danger">중복된 url 입니다</small>
+	    <small id = "possibleUrl" class = "text-info">저장 가능한 url 입니다</small>
+	     <br>
 	<button class = "button btn btn-success " id = "addBtn">추가</button>
 	</div>
 	<script>
@@ -65,9 +92,33 @@
 						alert("입력 에러");
 					}
 				});
-					return false;
 				
 			});
+			
+			
+			$("#duplicateBtn").on("click" ,function(){
+				let url = $("#urlinput").val();	
+				
+				if(url == "") {
+					alert ("주소를 입력하세요");
+					return;
+				}
+			});
+			
+			$.ajax({
+				type:"get",
+				url:"/lesson07/duplicateUrl",
+				data:{"url":url},
+				success:function(data) {
+					${"#duplicateUrl"}.hide();
+					${"#possibleUrl"}.hide();
+					
+					if
+				}
+				
+			});
+			
+			
 		});
 	</script>
 	
