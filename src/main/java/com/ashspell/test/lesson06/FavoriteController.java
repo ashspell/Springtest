@@ -65,10 +65,44 @@ public class FavoriteController {
 			
 	}
 	
-	@GetMapping("/lesson07/duplicatefavorite")
-	public String favoriteInput2() {
+	@PostMapping("/lesson07/duplicatefavorite")
+	@ResponseBody
+	public Map<String, Boolean>urlDuplicate(@RequestParam("url") String url) {
 		
-		return "lesson07/duplicateFavorite";
-	}
+	boolean isDuplicate = favoriteBO.urlDuplicate(url);
+		
+		//중복시
+		// {"is.duplicate":true}
+		//비 중복시
+		// {"is.duplicate":false}
+		
+		Map<String, Boolean> result = new HashMap<>();
+		if(isDuplicate) {
+			result.put("is_duplicate", true);
+		} else {
+			result.put("is_duplicate", false);
+		}
+		
+		return result;
+		}
+	
+		@GetMapping("/delete_favorite")
+		@ResponseBody
+		public Map<String , String> deleteFavorite(@RequestParam("id") int id) {
+			
+			int count = favoriteBO.deleteFavorite(id);
+			
+			// {"result":"success"}
+			// {"result":"fail"}
+			
+			Map<String, String> result = new HashMap<>();
+			if(count == 1) {
+				result.put("result", "success");
+			} else {
+				result.put("result", "fail");
+			}
+			
+			return result;
+		}
 		
 }

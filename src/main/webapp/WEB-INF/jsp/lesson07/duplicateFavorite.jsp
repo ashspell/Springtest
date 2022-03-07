@@ -47,7 +47,7 @@
 	    <small id = "duplicateUrl" class = "text-danger">중복된 url 입니다</small>
 	    <small id = "possibleUrl" class = "text-info">저장 가능한 url 입니다</small>
 	     <br>
-	<button class = "button btn btn-success " id = "addBtn">추가</button>
+	<button class = "button btn btn-success form-control " id = "addBtn">추가</button>
 	</div>
 	<script>
 		$(document).ready(function()  {
@@ -96,6 +96,8 @@
 			});
 			
 			
+			
+			
 			$("#duplicateBtn").on("click" ,function(){
 				let url = $("#urlinput").val();	
 				
@@ -103,17 +105,31 @@
 					alert ("주소를 입력하세요");
 					return;
 				}
+				
+				if(!url.startsWith("http://") && !url.startsWith("https://")) {
+					alert ("잘못된 주소입니다");
+					return;
+				}
 			});
 			
 			$.ajax({
-				type:"get",
+				type:"post",
 				url:"/lesson07/duplicateUrl",
 				data:{"url":url},
 				success:function(data) {
 					${"#duplicateUrl"}.hide();
 					${"#possibleUrl"}.hide();
 					
-					if
+					if(data.is_duplicate) {
+						${"#duplicateUrl"}.show();
+	
+					} else {
+						${"#possibleUrl"}.show();
+						
+					}
+				},
+				error:function() {
+					alert("중복확인 에러");
 				}
 				
 			});
