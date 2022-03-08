@@ -17,17 +17,17 @@
 		<table class = "table">
 			<thead>
 				<tr>
-					<td>No.</td>
-					<td>捞抚</td>
-					<td>林家</td>
+					<th>No.</th>
+					<th>捞抚</th>
+					<th>林家</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 				<c:forEach var = "favorite" items = "${favoriteList }" varStatus = "status">
-					<th>${status.count }</th>
-					<th>${favorite.name }</th>
-					<th>${favorite.url }</th>
+					<td>${status.count }</td>
+					<td>${favorite.name }</td>
+					<td>${favorite.url }</td>
 				</c:forEach>
 				</tr>
 			</tbody>	

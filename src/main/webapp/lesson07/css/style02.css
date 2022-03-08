@@ -1,0 +1,33 @@
+.wrap {
+    width: 1200px;
+    height: 800px;
+
+}
+.logo {
+    height: 100px;
+}
+.menu {
+    height: 40px;
+    background-color: peru;
+}
+.banner {
+    height: 500px;
+}
+.reservation {
+    height: 400px;
+}
+.copyright {
+    height: 100px;
+}
+.reservation {
+    font-size: 50px;
+    background-color: sienna;
+}
+.reservation-confirm {
+    background-color: chocolate;
+}
+
+ .phonecall {
+    background-color:sienna;
+}
+

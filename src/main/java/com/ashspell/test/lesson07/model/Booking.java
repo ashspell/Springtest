@@ -8,7 +8,7 @@ public class Booking {
 	private String name;
 	private int headcount;
 	private int day;
-	private String date;
+	private Date date;
 	private String phonenumber;
 	private String state;
 	private Date createdAt;
@@ -37,10 +37,15 @@ public class Booking {
 	public void setDay(int day) {
 		this.day = day;
 	}
-	public String getDate() {
+	
+	
+	
+
+
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	public String getPhonenumber() {

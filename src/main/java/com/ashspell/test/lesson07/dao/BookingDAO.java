@@ -1,5 +1,6 @@
 package com.ashspell.test.lesson07.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -12,11 +13,16 @@ public interface BookingDAO {
 	
 	public List<Booking> selectBookingList();
 		
-	public int insertFavorite(
+	public int insertBooking(
 			@Param("name") String name,
-			@Param("date") String date,
+			@Param("date") Date date,
 			@Param("day") int day,
 			@Param("headcount") int headcount,
 			@Param("phonenumber") String phonenumber);
+	
+	
+	
+	
+	public int deletebooking(@Param("id") int id);
 	
 }

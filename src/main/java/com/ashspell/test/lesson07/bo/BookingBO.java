@@ -1,5 +1,6 @@
 package com.ashspell.test.lesson07.bo;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,4 +20,13 @@ public class BookingBO {
 		
 		return bookingDAO.selectBookingList();
 	}
+	
+	public int insertBooking(String name, Date date, int day, int headcount, String phonenumber) {
+		return bookingDAO.insertBooking(name, date, day, headcount, phonenumber);
+	}
+	
+	public int deletebooking(int id) {
+		return bookingDAO.deletebooking(id);
+	}
+	
 }

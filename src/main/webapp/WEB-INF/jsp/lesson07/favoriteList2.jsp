@@ -39,7 +39,7 @@
 	<script>
 		$(document).ready(function(){
 		
-			$(".deleteBtn").on("click"m function(){
+			$(".deleteBtn").on("click", function(){
 				
 				let favoriteId = $(this).data("favorite-id");
 				
